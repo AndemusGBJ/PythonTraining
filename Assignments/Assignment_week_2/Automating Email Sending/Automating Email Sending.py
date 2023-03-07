@@ -64,7 +64,7 @@ def sendemail2(recipient, subject, body, filename=""):
     msg["To"] = recipient
     msg.set_content(body)
 
-    # Attach a file from a given path
+    # Attach a file from the current directory
     if filename != "":
         file_path = os.path.join("reports", filename)
         with open(file_path, "rb") as f:
