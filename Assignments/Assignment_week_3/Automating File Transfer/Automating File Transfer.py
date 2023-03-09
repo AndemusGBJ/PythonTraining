@@ -16,6 +16,45 @@ Here are the steps you can take to automate this process:
 
     You can also set up a log file to keep track of the files that have been transferred and any errors that may have occurred during the transfer process. '''
 
+import ftplib
+
+#Define credentials
+
+FTP_HOST = "ftp.dlptest.com"
+FTP_USER = "dlpuser"
+FTP_PASS = "rNrKYTX9g7z3RgJRmxWuGHbeu"
+
+
+ftp = ftplib.FTP(FTP_HOST, FTP_USER, FTP_PASS) #Connect to FTP server
+print(ftp.getwelcome()) #Check if connection is successful
+
+ftp.dir()           #Directory listing
+print(ftp.nlst())   #List files in directory
+
+#I am going to upload files to the FTP server first in a new folder.
+
+#Create a new folder in the directory
+
+ftp.mkd('assignment_week_3')
+ftp.cwd('assignment_week_3') #Change directory to the new folder
+print(ftp.pwd())
+
+#Let's upload 4 files to the FTP server. Theses have been created in advance
+for i in range(1,5):
+    with open('file'+str(i)+'.txt','rb') as f:
+        ftp.storbinary('STOR file'+str(i)+'.txt', f)
+
+print(ftp.nlst())
+
+
+
+
+
+
+
+
+
+
 
 
 
