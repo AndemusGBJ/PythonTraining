@@ -1,0 +1,29 @@
+{
+    "timestamp": [
+        1678371600,
+        1678371900,
+        1678372200
+    ],
+    "gateway": {
+        "name": "Wharton Metering Gateway",
+        "model": "AcuLink810-900",
+        "serial": "S8P21070256"
+    },
+    "device": {
+        "name": "GM_6",
+        "model": "VataVerksVV230",
+        "serial": "ENC-5-GM6",
+        "online": true,
+        "readings": [
+            {
+                "param": "Volume",
+                "value": [
+                    "11924938",
+                    "11925086",
+                    "11925268"
+                ],
+                "unit": "Cubic Feet"
+            }
+        ]
+    }
+}
