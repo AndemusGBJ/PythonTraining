@@ -71,47 +71,69 @@ def decrypt(stringToDecrypt,shift):
 
 
 #Main program
-print("Do you want to (e)ncrypt or (d)ecrypt?")
-toDo=input()
-while toDo != "e" and toDo != "d":
-    print("Please enter e or d")
-    toDo=input().lower()
+# print("Do you want to (e)ncrypt or (d)ecrypt?")
+# toDo=input()
+# while toDo != "e" and toDo != "d":
+#     print("Please enter e or d")
+#     toDo=input().lower()
 
-if toDo == "e":
-    print("Please enter the key (0 to 25) to use.")
-    encryptionKey = input()
-    while True:
-        try:
-            encryptionKey = int(encryptionKey)
-            if encryptionKey < 0 or encryptionKey > 25:
-                print("Please enter a number between 0 and 25")
-                encryptionKey = input()
-                continue
-            break
-        except ValueError:
-            print("Please enter a number")
-            encryptionKey = input()
-        encryptionKey
-    print("Enter the message to encrypt.")
-    message = input()
-    print(encrypt(message, encryptionKey))
-else:
-    print("Please enter the key (0 to 25) to use.")
-    encryptionKey = input()
-    while True:
-        try:
-            encryptionKey = int(encryptionKey)
-            if encryptionKey < 0 or encryptionKey > 25:
-                print("Please enter a number between 0 and 25")
-                encryptionKey = input()
-                continue
-            break
-        except ValueError:
-            print("Please enter a number")
-            encryptionKey = input()
-        encryptionKey
-    print("Enter the message to decrypt.")
-    message = input()
-    print(decrypt(message, encryptionKey))
+# if toDo == "e":
+#     print("Please enter the key (0 to 25) to use.")
+#     encryptionKey = input()
+#     while True:
+#         try:
+#             encryptionKey = int(encryptionKey)
+#             if encryptionKey < 0 or encryptionKey > 25:
+#                 print("Please enter a number between 0 and 25")
+#                 encryptionKey = input()
+#                 continue
+#             break
+#         except ValueError:
+#             print("Please enter a number")
+#             encryptionKey = input()
+#         encryptionKey
+#     print("Enter the message to encrypt.")
+#     message = input()
+#     print(encrypt(message, encryptionKey))
+# else:
+#     print("Please enter the key (0 to 25) to use.")
+#     encryptionKey = input()
+#     while True:
+#         try:
+#             encryptionKey = int(encryptionKey)
+#             if encryptionKey < 0 or encryptionKey > 25:
+#                 print("Please enter a number between 0 and 25")
+#                 encryptionKey = input()
+#                 continue
+#             break
+#         except ValueError:
+#             print("Please enter a number")
+#             encryptionKey = input()
+#         encryptionKey
+#     print("Enter the message to decrypt.")
+#     message = input()
+#     print(decrypt(message, encryptionKey))
 
 
+
+#Caesar Cipher cracker
+
+def caesar_cipher_cracker(cipher_text):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    cipher_text = cipher_text.upper().split()
+    
+    for i in range(1, 27):
+        decrypted_text = ""
+        for word in cipher_text:
+            for letter in word:
+                if letter in alphabet:
+                    decrypted_text += alphabet[(alphabet.index(letter) - i) % 26]
+                else:
+                    decrypted_text += letter
+            decrypted_text += " "
+        print("Round"+str(i)+": " ,decrypted_text)
+        
+        
+
+
+caesar_cipher_cracker("HUTPUAX SUT VÈXK, P'KYVÈXK WAK BUAY BUAY VUXZKF HOKT")
